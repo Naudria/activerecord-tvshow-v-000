@@ -4,5 +4,9 @@ class Show < ActiveRecord::Base
     Show.maximum(:rating)
   end
 
+  def self.most_popular_show
+    rating = Show.highest_rating
+    Show.find_by(rating: rating)
+  end
   
 end
